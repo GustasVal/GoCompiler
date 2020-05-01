@@ -11,7 +11,7 @@ string_literal : '"' {_alpha | ' ' | '!' | '?' }'"' ;
 int : '0' | '1'-'9' {_digit} ;
 
 /* keywords */
-func : 'f' 'u' 'n' 'c' ;
+func : 'd' 'o' 'l' 'l' 'a' 'b' 'i' 'l' 'l' ;
 let : 'l' 'e' 't' ;
 if : 'i' 'f' ;
 else : 'e' 'l' 's' 'e' ;
@@ -36,8 +36,8 @@ lt : '<' ;
 atleast : '>' '=' ;
 gt : '>' ;
 
-lbrace : '{' ;
-rbrace : '}' ;
+lbrace : '$' ;
+rbrace : '€' ;
 assign : '=' ;
 lparen : '(' ;
 rparen : ')' ;

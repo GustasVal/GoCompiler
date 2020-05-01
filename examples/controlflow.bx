@@ -1,4 +1,4 @@
-func test(x Int) Int {
+func test(x Int) Int $
 	let y = 0;
 	if y > 5 {
 		y = 5;
@@ -6,6 +6,6 @@ func test(x Int) Int {
 		y = 8;
 	}
 	return y;
-}
+€
 
 PRINT(test(5));
