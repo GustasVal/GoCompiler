@@ -10,7 +10,7 @@ using namespace std;
 class Nothing {
 	
 };
-
+#pragma GCC diagnostic ignored "-Wreturn-type"
 // Base Class
 class Base {
 public:

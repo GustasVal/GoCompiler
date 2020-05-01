@@ -69,7 +69,7 @@ func gen(node ast.Node, b *bytes.Buffer) string {
 }
 
 func genProgram(node *ast.Program, b *bytes.Buffer) string {
-	write(b, "#include <string>\n#include <iostream>\n#include \"Builtins.cpp\"\n\n")
+	write(b, "#include <string>\n#include <iostream>\n#include \"Builtins.cpp\"\n#pragma GCC diagnostic ignored \"-Wunused-value\"\n\n")
 
 	for _, funcs := range node.Functions {
 		gen(funcs, b)

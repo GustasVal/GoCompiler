@@ -40,6 +40,8 @@ func Compile(code bytes.Buffer) string {
 	defer f.Close()
 	f.Write(code.Bytes())
 
+	fmt.Sprintf("foo: %s", code)
+
 	var out bytes.Buffer
 	cmd1 := exec.Command("g++", "-o", "main", "./build/"+"main.cpp", "./build/Builtins.cpp")
 	cmd1.Stderr = &out
@@ -48,7 +50,7 @@ func Compile(code bytes.Buffer) string {
 		panic(fmt.Sprintf("error: %s", out.String()))
 	}
 
-	cmd := exec.Command("./main.exe")
+	cmd := exec.Command("./main")
 	var outb bytes.Buffer
 	cmd.Stdout = &outb
 	err = cmd.Run()
