@@ -7,6 +7,6 @@ dollabill hello(name String) String $
 €
 
 let num = add(1, 2);
-let phrase = hello("Jeff");
+let phrase = hello("Ben Dover");
 PRINT(phrase);
 PRINT(num);

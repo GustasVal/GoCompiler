@@ -1,10 +1,10 @@
-func test(x Int) Int $
+dollabill test(x Int) Int $
 	let y = 0;
-	if y > 5 {
+	if y > 5 $
 		y = 5;
-	} else {
+	€ else $
 		y = 8;
-	}
+	€
 	return y;
 €
 
