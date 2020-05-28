@@ -3,24 +3,26 @@
 #include "Builtins.cpp"
 #pragma GCC diagnostic ignored "-Wunused-value"
 
-Int test(Int x) {
-Int tmp_1 = Int(0);
-Int y = tmp_1;
-Int tmp_2 = Int(5);
-Bool tmp_3 = y.GT(tmp_2);
-if ("true" == tmp_3.val) {
-Int tmp_4 = Int(5);
+Int loop(Int x) {
+Int y = x;
+Int tmp_1 = Int(5);
+Bool tmp_2 = tmp_1.GT(y);
+if ("true" == tmp_2.val) {
+Int tmp_3 = Int(1);
+Int tmp_4 = y.PLUS(tmp_3);
 y = tmp_4;
+Nothing tmp_5 = y.PRINT();tmp_5;
+Int tmp_6 = loop(y);tmp_6;
 } else {
-Int tmp_5 = Int(8);
-y = tmp_5;
-}
-
 return y;
 }
 
+Int tmp_7 = Int(0);
+return tmp_7;
+}
+
 int main() {
-Int tmp_6 = Int(5);
-Int tmp_7 = test(tmp_6);Nothing tmp_8 = tmp_7.PRINT();tmp_8;
+Int tmp_8 = Int(1);
+Int tmp_9 = loop(tmp_8);Nothing tmp_10 = tmp_9.PRINT();tmp_10;
 return 0;
 }

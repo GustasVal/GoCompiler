@@ -1,0 +1,13 @@
+dollabill loop(x Int) Int $
+	let y = x;
+	if 5 > y $
+		y = y + 1;
+		PRINT(y);
+		loop(y);
+	€ else $
+		return y;
+	€
+	return 0;
+€
+
+PRINT(loop(1));

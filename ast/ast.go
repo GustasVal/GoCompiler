@@ -31,6 +31,9 @@ func (is InitStatement) TokenLiteral() string { return "InitStatement" }
 func (fs FunctionStatement) statementNode()       {}
 func (fs FunctionStatement) TokenLiteral() string { return "FunctionStatement" }
 
+func (frs ForStatement) statementNode()       {}
+func (frs ForStatement) TokenLiteral() string { return "ForStatement" }
+
 // Expressions
 func (i Identifier) expressionNode()      {}
 func (i Identifier) TokenLiteral() string { return string(i.Token.Lit) }
@@ -138,6 +141,20 @@ func NewFunctionStatement(name, args, ret, block Attrib) (Statement, error) {
 	}
 
 	return &FunctionStatement{Name: string(n.Lit), Body: b, Parameters: a, Return: string(r.Lit)}, nil
+}
+
+func NewForStatement(cond, cons Attrib) (Statement, error) {
+	c, ok := cond.(Expression)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of cond. got=%T", cond)
+	}
+
+	cs, ok := cons.(*BlockStatement)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of cons. got=%T", cons)
+	}
+
+	return &ForStatement{Condition: c, BlockStatement: cs}, nil
 }
 
 func NewIfStatement(cond, cons, alt Attrib) (Statement, error) {

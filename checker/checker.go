@@ -32,6 +32,8 @@ func checker(node ast.Node) (string, error) {
 		return evalInitStatement(node)
 	case *ast.FunctionStatement:
 		return evalFunctionStatement(node)
+	case *ast.ForStatement:
+		return evalForStatement(node)
 	// Expressions
 	case *ast.InfixExpression:
 		return evalInfixExpression(node)
@@ -152,6 +154,16 @@ func evalFunctionStatement(node *ast.FunctionStatement) (string, error) {
 	}
 
 	SetFunctionSignature(node.Name, Signature{node.Return, params})
+	return "", nil
+}
+
+func evalForStatement(node *ast.ForStatement) (string, error) {
+	cond, _ := checker(node.Condition)
+	if cond != BOOL_TYPE {
+		return "", errors.New("condition not bool type")
+	}
+
+	checker(node.BlockStatement)
 	return "", nil
 }
 

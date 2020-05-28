@@ -51,6 +51,8 @@ func gen(node ast.Node, b *bytes.Buffer) string {
 		return genAssignStatement(node, b)
 	case *ast.InitStatement:
 		return genInitStatement(node, b)
+	case *ast.ForStatement:
+		return genForStatement(node, b)
 	// // Expressions
 	case *ast.InfixExpression:
 		return genInfixExpression(node, b)
@@ -216,4 +218,12 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer) string {
 
 	write(b, ");")
 	return tmp
+}
+
+func genForStatement(node *ast.ForStatement, b *bytes.Buffer) string {
+	cond := gen(node.Condition, b)
+	write(b, "for (int i = 0; \"true\" == %s.val; i = i + 1) {\n", cond)
+	gen(node.BlockStatement, b)
+	write(b, "} \n")
+	return ""
 }

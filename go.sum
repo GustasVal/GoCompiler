@@ -1,3 +1,5 @@
+github.com/Lebonesco/go-compiler v0.0.0-20181217065339-5a7eac0594e6 h1:rhiQVz4kuNrPpQW/bPgrpWeoZMiSTTsbgHi5c9umxZ4=
+github.com/Lebonesco/go-compiler v0.0.0-20181217065339-5a7eac0594e6/go.mod h1:KxXwPbQkIYzNaFZutPv4a/t6AoP5kSWK2sKwfQg3Du8=
 github.com/goccmack/gocc v0.0.0-20190916141541-19e54f37e2bc h1:mMJ8z7FR/iq5D3vqE2UYhmEztAJcbYK3VxlpGvp+dkY=
 github.com/goccmack/gocc v0.0.0-20190916141541-19e54f37e2bc/go.mod h1:I84p9QKqzBb+3xnWK2df6AbWU1O59t3EcPycuPGa6b4=
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=

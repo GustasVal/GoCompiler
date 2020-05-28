@@ -20,6 +20,7 @@ true : 't' 'r' 'u' 'e' ;
 false : 'f' 'a' 'l' 's' 'e' ;
 and : 'a' 'n' 'd' ;
 or : 'o' 'r' ;
+for : 'f' 'o' 'r' ;
 
 ident : _letter {_alpha} ;
 
@@ -69,13 +70,14 @@ Function
   : Statements Statement << ast.AppendStatement($0, $1) >>
   | empty << ast.NewStatementList() >>
   ;
-  
+
  StatementBlock
   : lbrace Statements rbrace << ast.NewBlockStatement($1) >>
   ;
-  
+
  Statement
   : if Expression StatementBlock IfStatement << ast.NewIfStatement($1, $2, $3) >>
+  | for Expression StatementBlock << ast.NewForStatement($1, $2) >>
   | ident assign Expression semicolon << ast.NewAssignStatement($0, $2) >>
   | let ident assign Expression semicolon << ast.NewIdentInit($1, $3) >>
   | Expression semicolon << ast.NewExpressionStatement($0) >>
@@ -85,7 +87,7 @@ Function
 IfStatement
 	: else StatementBlock << $1, nil >>
 	| empty
-	; 
+	;
   
 Expression
   : Expression Operation Term << ast.NewInfixExpression($0, $2, $1) >>
